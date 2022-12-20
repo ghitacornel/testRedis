@@ -7,22 +7,20 @@ import java.time.Duration;
 
 public class MyJedisPool {
 
-    final public static JedisPoolConfig poolConfig = buildPoolConfiguration();
-
-    final public static JedisPool POOL = new JedisPool(poolConfig, "localhost", 6379);
+    final public static JedisPool POOL = new JedisPool(buildPoolConfiguration(), "localhost", 6379);
 
     private static JedisPoolConfig buildPoolConfiguration() {
-        JedisPoolConfig poolConfig = new JedisPoolConfig();
-        poolConfig.setMaxTotal(128);
-        poolConfig.setMaxIdle(128);
-        poolConfig.setMinIdle(16);
-        poolConfig.setTestOnBorrow(true);
-        poolConfig.setTestOnReturn(true);
-        poolConfig.setTestWhileIdle(true);
-        poolConfig.setMinEvictableIdleTime(Duration.ofSeconds(60));
-        poolConfig.setTimeBetweenEvictionRuns(Duration.ofSeconds(30));
-        poolConfig.setNumTestsPerEvictionRun(3);
-        poolConfig.setBlockWhenExhausted(true);
-        return poolConfig;
+        JedisPoolConfig config = new JedisPoolConfig();
+        config.setMaxTotal(128);
+        config.setMaxIdle(128);
+        config.setMinIdle(16);
+        config.setTestOnBorrow(true);
+        config.setTestOnReturn(true);
+        config.setTestWhileIdle(true);
+        config.setMinEvictableIdleTime(Duration.ofSeconds(60));
+        config.setTimeBetweenEvictionRuns(Duration.ofSeconds(30));
+        config.setNumTestsPerEvictionRun(3);
+        config.setBlockWhenExhausted(true);
+        return config;
     }
 }
