@@ -9,7 +9,7 @@ public class MyJedisPool {
 
     final public static JedisPoolConfig poolConfig = buildPoolConfiguration();
 
-    final public static JedisPool POOL = new JedisPool(poolConfig, "redis://localhost:6379");
+    final public static JedisPool POOL = new JedisPool(poolConfig, "localhost", 6379);
 
     private static JedisPoolConfig buildPoolConfiguration() {
         JedisPoolConfig poolConfig = new JedisPoolConfig();
