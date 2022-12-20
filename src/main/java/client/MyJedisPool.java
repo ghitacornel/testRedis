@@ -7,9 +7,9 @@ import java.time.Duration;
 
 public class MyJedisPool {
 
-    final private static JedisPoolConfig poolConfig = buildPoolConfiguration();
+    final public static JedisPoolConfig poolConfig = buildPoolConfiguration();
 
-    final public static JedisPool POOL = new JedisPool(poolConfig, "localhost");
+    final public static JedisPool POOL = new JedisPool(poolConfig, "redis://localhost:6379");
 
     private static JedisPoolConfig buildPoolConfiguration() {
         JedisPoolConfig poolConfig = new JedisPoolConfig();

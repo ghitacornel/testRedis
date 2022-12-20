@@ -6,8 +6,8 @@ import org.junit.*;
 
 public class TestSingleNode {
 
-    private ClientWriter writer = new ClientWriter();
-    private ClientReader reader = new ClientReader();
+    private final ClientWriter writer = new ClientWriter();
+    private final ClientReader reader = new ClientReader();
 
     @Before
     public void setUp() {
